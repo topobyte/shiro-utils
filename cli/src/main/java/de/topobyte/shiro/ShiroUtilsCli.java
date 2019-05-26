@@ -36,6 +36,8 @@ public class ShiroUtilsCli
 			DelegateExeOptions options = new DelegateExeOptions();
 			options.addCommand("create-hash", RunCreateHash.OPTIONS_FACTORY,
 					RunCreateHash.class);
+			options.addCommand("verify-hash", RunVerifyHash.OPTIONS_FACTORY,
+					RunVerifyHash.class);
 			return options;
 		}
 
