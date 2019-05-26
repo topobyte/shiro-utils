@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <name>Shiro utils</name>
+  <description>Utilities for working with Apache Shiro</description>
+  <url>https://github.com/topobyte/shiro-utils</url>
+</project>
