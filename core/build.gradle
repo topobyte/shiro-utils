@@ -4,20 +4,27 @@ if (project.hasProperty("topobyte")) {
 }
 
 dependencies {
-    compile 'org.apache.shiro:shiro-core:1.4.1'
+    api 'org.apache.shiro:shiro-core:1.4.1'
+}
+
+java {
+    withSourcesJar()
+}
+
+tasks.withType(GenerateModuleMetadata) {
+    enabled = false
 }
 
 def pomInfo = new XmlSlurper().parse(new File(projectDir, 'info.pom'));
 
-afterEvaluate { project ->
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                pom.project {
-                    name pomInfo.name
-                    description pomInfo.description
-                    url pomInfo.url
-                }
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            pom {
+                name = "$pomInfo.name"
+                description = "$pomInfo.description"
+                url = "$pomInfo.url"
             }
         }
     }
